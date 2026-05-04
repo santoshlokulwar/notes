@@ -1,0 +1,66 @@
+<div class="tab-panel" id="panel-redux" role="tabpanel" hidden>
+
+  <div class="section-heading"><h2>Redux core concepts</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="redux" data-id="rd1">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q1</span>
+      <span class="question-text">Explain Redux data flow in one minute</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>UI dispatches an action, reducer calculates next immutable state, store updates, subscribed UI re-renders. Flow is predictable because state changes only through dispatched actions.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="redux" data-id="rd2">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q2</span>
+      <span class="question-text">Why immutability is important in Redux?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Redux relies on reference changes to detect updates efficiently. Mutating existing objects can hide changes, break memoization, and cause stale UI bugs.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="redux" data-id="rd3">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q3</span>
+      <span class="question-text">What problem does middleware solve in Redux?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Middleware intercepts dispatched actions for side effects like API calls, logging, analytics, retries, and async orchestration, while reducers stay pure and synchronous.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="redux" data-id="rd4">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q4</span>
+      <span class="question-text">How would you structure Redux store for large apps?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Use feature-based slices, normalized entities, clear ownership boundaries, and shared selectors. Keep UI state separate from domain/cache state for maintainability.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="redux" data-id="rd5">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q5</span>
+      <span class="question-text">When would you avoid Redux?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>For small apps with minimal shared state, Redux can be unnecessary overhead. Local component state + context or lightweight stores can be simpler and faster to iterate.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <button type="button" class="reset-btn" onclick="resetTab()">↺ Reset progress (this tab)</button>
+</div>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interview Notes — React, RN, JS & Logic</title>
+<title>Interview Notes — React, RN, JS, TS, State Mgmt & Logic</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -351,22 +351,29 @@
 <header>
   <div class="badge">Study hub</div>
   <h1>Interview &amp; technical notes</h1>
-  <p class="subtitle">React, React Native, JavaScript, and logical problems — click a question to expand</p>
+  <p class="subtitle">React, React Native, JavaScript, TypeScript, state management, databases, and logical problems — click a question to expand</p>
 </header>
 
 <p class="intro-strip">
-  <strong>Stack snapshot:</strong> Senior React Native (6+ yrs) — scalable apps, performance, native integrations, production debugging; experience with large user bases, push notifications, rendering optimizations. Tools in rotation: <strong>Zustand</strong>, <strong>Realm DB</strong>. Seeking ownership and technical decision-making.
+  <strong>Stack snapshot:</strong> I’m a Senior React Native developer with 6+ years of experience building scalable and performance-optimized mobile applications. I specialize in architecture design, performance tuning, native integrations, and production debugging. I’ve worked on complex apps with having 30m download, push notifications, and optimized rendering strategies. I’m now looking for a role where I can take ownership and contribute to technical decision-making.
 </p>
 
 <div class="tabs-wrap" role="tablist" aria-label="Note categories">
   <button type="button" class="tab-btn active" data-tab="react" role="tab" aria-selected="true">React</button>
   <button type="button" class="tab-btn" data-tab="rn" role="tab" aria-selected="false">React Native</button>
   <button type="button" class="tab-btn" data-tab="js" role="tab" aria-selected="false">JavaScript</button>
+  <button type="button" class="tab-btn" data-tab="ts" role="tab" aria-selected="false">TypeScript</button>
+  <button type="button" class="tab-btn" data-tab="zustand" role="tab" aria-selected="false">Zustand</button>
+  <button type="button" class="tab-btn" data-tab="realm" role="tab" aria-selected="false">Realm DB</button>
+  <button type="button" class="tab-btn" data-tab="redux" role="tab" aria-selected="false">Redux</button>
+  <button type="button" class="tab-btn" data-tab="rtk" role="tab" aria-selected="false">Redux Toolkit</button>
+  <button type="button" class="tab-btn" data-tab="middleware" role="tab" aria-selected="false">Redux Middleware</button>
+  <button type="button" class="tab-btn" data-tab="senior" role="tab" aria-selected="false">Senior Interview</button>
   <button type="button" class="tab-btn" data-tab="logic" role="tab" aria-selected="false">Logical reasoning</button>
 </div>
 
 <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-<p class="progress-label" id="progressLabel">0 / 0 reviewed (this tab)</p>
+<p class="progress-label" id="progressLabel">0 / 0 reviewed </p>
 
 <div class="container" id="sectionsContainer">
 </div>
@@ -378,6 +385,13 @@
     react: 'react-section.html',
     rn: 'rn-section.html',
     js: 'js-section.html',
+    ts: 'typescript-section.html',
+    zustand: 'zustand-section.html',
+    realm: 'realm-section.html',
+    redux: 'redux-section.html',
+    rtk: 'redux-toolkit-section.html',
+    middleware: 'redux-middleware-section.html',
+    senior: 'senior-interview-section.html',
     logic: 'logic-section.html'
   };
   let activeTab = 'react';
@@ -385,7 +399,7 @@
 
   async function loadSections() {
     sectionsContainer.innerHTML = '';
-    const tabs = ['react', 'rn', 'js', 'logic'];
+    const tabs = ['react', 'rn', 'js', 'ts', 'zustand', 'realm', 'redux', 'rtk', 'middleware', 'senior', 'logic'];
     const sections = await Promise.all(
       tabs.map(async function (tab) {
         const res = await fetch(SECTION_FILES[tab]);
@@ -431,7 +445,7 @@
     const total = cards.length;
     const pct = total ? (n / total) * 100 : 0;
     document.getElementById('progressFill').style.width = pct + '%';
-    document.getElementById('progressLabel').textContent = n + ' / ' + total + ' reviewed (this tab)';
+    document.getElementById('progressLabel').textContent = n + ' / ' + total + ' reviewed';
   };
 
   window.toggleCard = function (row) {
@@ -510,7 +524,7 @@
   });
 
   await loadSections();
-  ['react', 'rn', 'js', 'logic'].forEach(applyRestoredState);
+  ['react', 'rn', 'js', 'ts', 'zustand', 'realm', 'redux', 'rtk', 'middleware', 'senior', 'logic'].forEach(applyRestoredState);
   switchTab('react');
 })();
 </script>

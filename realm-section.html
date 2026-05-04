@@ -1,0 +1,66 @@
+<div class="tab-panel" id="panel-realm" role="tabpanel" hidden>
+
+  <div class="section-heading"><h2>Realm DB essentials</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="realm" data-id="r1">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q1</span>
+      <span class="question-text">Why pick Realm in React Native apps?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Realm offers fast local object storage, live-updating query results, and offline-first patterns. It avoids heavy serialization work you often do with plain JSON storage.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="realm" data-id="r2">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q2</span>
+      <span class="question-text">How do Realm writes work, and why transactions matter?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>All create/update/delete operations must be inside a write transaction. Transactions ensure atomic updates and protect data integrity if app crashes mid-operation.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="realm" data-id="r3">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q3</span>
+      <span class="question-text">What is Realm schema migration strategy?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Bump schema version and provide migration logic to transform existing records. Never remove/rename fields in production without backward-compatible migration steps.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="realm" data-id="r4">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q4</span>
+      <span class="question-text">How do live objects/results affect UI logic?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Realm objects are live references, not immutable snapshots. UI can update automatically, but business logic should avoid mutating shared live objects outside controlled flows.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="realm" data-id="r5">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q5</span>
+      <span class="question-text">Common performance tips for Realm?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Query only required fields/data sets, use indexed fields for frequent lookups, batch writes in one transaction, and avoid loading very large result sets in one render path.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <button type="button" class="reset-btn" onclick="resetTab()">↺ Reset progress (this tab)</button>
+</div>

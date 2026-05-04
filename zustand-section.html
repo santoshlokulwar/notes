@@ -1,0 +1,66 @@
+<div class="tab-panel" id="panel-zustand" role="tabpanel" hidden>
+
+  <div class="section-heading"><h2>Zustand essentials</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="zustand" data-id="z1">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q1</span>
+      <span class="question-text">Why use Zustand instead of Context + useReducer?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Zustand gives a tiny global store with less boilerplate, selective subscriptions, and no provider nesting. It scales better than broad context updates for frequently changing state.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="zustand" data-id="z2">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q2</span>
+      <span class="question-text">How do you avoid unnecessary re-renders in Zustand?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Use selector functions so components subscribe only to required slices: <code>useStore(s =&gt; s.user.name)</code>. Avoid selecting full objects unless needed; combine with shallow compare for object selectors.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="zustand" data-id="z3">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q3</span>
+      <span class="question-text">How do async actions work in Zustand?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Actions can be async functions inside the store. Call API, then <code>set</code> with loading/data/error updates. Keep race conditions in mind and track request id/abort when needed.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="zustand" data-id="z4">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q4</span>
+      <span class="question-text">How do persist middleware and hydration impact app startup?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Persist reads from storage during hydration. Until hydration completes, default values may render first. For critical auth/theme flows, gate UI with a hydrated flag to prevent flicker.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="zustand" data-id="z5">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q5</span>
+      <span class="question-text">When should Zustand not be your first choice?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>If you need strict event-sourcing/devtools conventions across a very large team, Redux Toolkit may provide stronger structure. For server-state, prefer dedicated tools like TanStack Query.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <button type="button" class="reset-btn" onclick="resetTab()">↺ Reset progress (this tab)</button>
+</div>

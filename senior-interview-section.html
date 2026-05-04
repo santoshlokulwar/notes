@@ -1,0 +1,66 @@
+<div class="tab-panel" id="panel-senior" role="tabpanel" hidden>
+
+  <div class="section-heading"><h2>Senior-level interview questions</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="senior" data-id="s1">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q1</span>
+      <span class="question-text">How do you decide architecture for a new React Native app?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Start from product constraints: offline needs, release cadence, team skill, observability, and performance targets. Choose patterns that optimize delivery speed first, then scale by measurable bottlenecks.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="senior" data-id="s2">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q2</span>
+      <span class="question-text">Describe a production incident you handled end-to-end</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Strong answer should cover detection, impact assessment, rollback/mitigation, root-cause analysis, and prevention actions. Interviewers look for calm prioritization and communication quality.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="senior" data-id="s3">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q3</span>
+      <span class="question-text">How do you mentor mid-level/junior engineers?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Use clear ownership, pair-debugging on real tasks, code review teaching notes, and growth plans with measurable goals. Balance short-term delivery with long-term team capability.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="senior" data-id="s4">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q4</span>
+      <span class="question-text">How do you handle disagreement on technical direction?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Align on decision criteria (cost, risk, user impact), run a time-boxed spike if needed, then commit to one path. Document decision records so future teams understand trade-offs.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="senior" data-id="s5">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q5</span>
+      <span class="question-text">How do you ensure long-term app performance and reliability?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Define budgets (startup time, crash-free rate, frame drops), instrument key flows, monitor regressions in CI, and enforce release checklists. Reliability is process plus tooling, not one-time optimization.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <button type="button" class="reset-btn" onclick="resetTab()">↺ Reset progress (this tab)</button>
+</div>

@@ -1,0 +1,66 @@
+<div class="tab-panel" id="panel-rtk" role="tabpanel" hidden>
+
+  <div class="section-heading"><h2>Redux Toolkit interview points</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="rtk" data-id="rtk1">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q1</span>
+      <span class="question-text">Why Redux Toolkit over plain Redux?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>RTK removes boilerplate with <code>configureStore</code> and <code>createSlice</code>, includes good defaults, and encourages scalable patterns by default.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="rtk" data-id="rtk2">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q2</span>
+      <span class="question-text">How can reducers "mutate" state in RTK?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>RTK uses Immer under the hood. You write draft mutations, Immer produces the next immutable state safely, so reference changes remain predictable.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="rtk" data-id="rtk3">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q3</span>
+      <span class="question-text">What is <code>createAsyncThunk</code> and when to use it?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>It standardizes async workflows by generating <code>pending/fulfilled/rejected</code> actions. Use it for request lifecycle handling when RTK Query is not the right fit.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="rtk" data-id="rtk4">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q4</span>
+      <span class="question-text">RTK Query vs thunk-based fetching?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>RTK Query provides cache, dedupe, invalidation, and request status out of the box. Thunks give more manual control but require more custom caching logic.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="rtk" data-id="rtk5">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q5</span>
+      <span class="question-text">How do you organize RTK slices in enterprise codebases?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Keep feature folders with slice, selectors, async logic, and tests together. Export minimal public API from each feature and avoid cross-feature state coupling.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <button type="button" class="reset-btn" onclick="resetTab()">↺ Reset progress (this tab)</button>
+</div>

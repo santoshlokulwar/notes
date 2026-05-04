@@ -1,0 +1,224 @@
+<div class="tab-panel" id="panel-ts" role="tabpanel" hidden>
+
+  <div class="section-heading"><h2>TypeScript basics</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="ts" data-id="ts1">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q1</span>
+      <span class="question-text">What is TypeScript and how is it different from JavaScript?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <ul class="answer-list">
+        <li>JavaScript is dynamically typed (type checks happen at runtime).</li>
+        <li>TypeScript is statically typed (type checks happen at compile time).</li>
+        <li>TypeScript is a superset of JavaScript and compiles to JavaScript.</li>
+        <li>Type inference means TS can figure out some types automatically.</li>
+      </ul>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="ts" data-id="ts2">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q2</span>
+      <span class="question-text">Common TypeScript types to remember</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><code>string</code>, <code>number</code>, <code>boolean</code>, <code>RegExp</code>, <code>object</code>, <code>array</code>, <code>tuple</code>, <code>enum</code>, <code>any</code>, <code>unknown</code>, <code>never</code>, <code>void</code>, and union types like <code>string | number</code>.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="ts" data-id="ts3">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q3</span>
+      <span class="question-text"><code>any</code> vs <code>unknown</code> vs <code>never</code> vs <code>void</code></span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <ul class="answer-list">
+        <li><code>any</code>: skips type safety, accepts anything.</li>
+        <li><code>unknown</code>: can hold anything, but must be narrowed before use.</li>
+        <li><code>never</code>: value never occurs (e.g., function that always throws).</li>
+        <li><code>void</code>: usually no return value from a function.</li>
+      </ul>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="ts" data-id="ts4">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q4</span>
+      <span class="question-text">Arrays and tuples in TypeScript</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Array example: <code>let marks: number[] = [10, 20]</code>. Tuple example: <code>let tuple: [string, number, boolean] = ['santosh', 3, true]</code>. Tuple defines type by position.</p>
+      <pre>let tuple: [string, number, boolean] = ['santosh', 3, true];
+let a = ['santosh', 3, true];
+// tuple = a; // not allowed, a is a normal array</pre>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="ts" data-id="ts5">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q5</span>
+      <span class="question-text">Object types with <code>type</code> and <code>interface</code></span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <pre>type StringOrNumber = string | number;
+type StringOrNumberArray = (string | number)[];
+
+type Gui = {
+  name: string;
+  active: boolean;
+  albums: StringOrNumberArray;
+};
+
+interface GuiProfile {
+  name?: string;
+  active: boolean;
+  albums: StringOrNumberArray;
+}</pre>
+      <p>Use <code>?</code> for optional properties. Optional keys are checked at compile time.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="ts" data-id="ts6">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q6</span>
+      <span class="question-text">Enum and literal types</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <pre>enum Grade {
+  U,
+  D,
+  C,
+  B,
+  A
+}
+
+let fixedName: 'Santosh';
+let userName: 'Santosh' | 'Lokulwar' | 'Sonal';</pre>
+      <p>Literal types allow only specific values.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="ts" data-id="ts7">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q7</span>
+      <span class="question-text">Function types, optional params, and defaults</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <pre>const add = (a: number, b: number): number => {
+  return a + b;
+};
+
+type AddFunction = (a: number, b: number) => number;
+let addFn: AddFunction = function (c, d) {
+  return c + d;
+};
+
+const addWithOptional = (a: number, b: number, c?: number): number => {
+  return c !== undefined ? a + b + c : a + b;
+};
+
+const addWithDefault = (a: number, b: number, c: number = 2): number => {
+  return a + b + c;
+};</pre>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="ts" data-id="ts8">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q8</span>
+      <span class="question-text">Type assertions</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Use assertion when you know a narrower type than TS can infer.</p>
+      <pre>function getValue(): string | number {
+  return 'token';
+}
+
+const value = getValue() as string;
+console.log(value.toUpperCase());</pre>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="section-heading"><h2>Auth flow and testing</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="ts" data-id="ts9">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q9</span>
+      <span class="question-text">Implement auth flow: get token, set token, refresh token</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <pre>type Tokens = { accessToken: string; refreshToken: string };
+
+class AuthService {
+  private accessToken: string | null = null;
+  private refreshToken: string | null = null;
+
+  async login(username: string, password: string): Promise<void> {
+    const tokens = await this.getToken(username, password);
+    this.setToken(tokens);
+  }
+
+  private async getToken(username: string, password: string): Promise<Tokens> {
+    // call login API
+    return { accessToken: 'access', refreshToken: 'refresh' };
+  }
+
+  private setToken(tokens: Tokens): void {
+    this.accessToken = tokens.accessToken;
+    this.refreshToken = tokens.refreshToken;
+  }
+
+  async refreshAccessToken(): Promise<void> {
+    if (!this.refreshToken) throw new Error('No refresh token');
+    // call refresh API with refreshToken
+    this.accessToken = 'new-access-token';
+  }
+}</pre>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="ts" data-id="ts10">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q10</span>
+      <span class="question-text">E2E and Jest end-to-end test cases (auth)</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <ul class="answer-list">
+        <li>Login success: verify token is stored and protected screen opens.</li>
+        <li>Login failure: verify error message and no token persisted.</li>
+        <li>Expired access token: verify refresh token API is called and request is retried.</li>
+        <li>Expired refresh token: verify user is logged out and redirected to login.</li>
+      </ul>
+      <pre>// Jest-style integration sketch
+it('refreshes token and retries protected request', async () => {
+  // mock first protected call = 401
+  // mock refresh endpoint = 200 with new token
+  // mock retried protected call = 200
+  // expect final response success and token update
+});</pre>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <button type="button" class="reset-btn" onclick="resetTab()">↺ Reset progress (this tab)</button>
+</div>

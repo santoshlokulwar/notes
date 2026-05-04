@@ -1,0 +1,66 @@
+<div class="tab-panel" id="panel-middleware" role="tabpanel" hidden>
+
+  <div class="section-heading"><h2>Redux middleware interview topics</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="middleware" data-id="m1">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q1</span>
+      <span class="question-text">What is Redux middleware in practical terms?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Middleware sits between <code>dispatch</code> and reducers. It can intercept actions to run side effects, transform actions, or block/redirect flows before state updates.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="middleware" data-id="m2">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q2</span>
+      <span class="question-text">Why not put async calls inside reducers?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Reducers must stay pure and synchronous. Async work in reducers breaks predictability, time-travel/debugging assumptions, and makes state transitions non-deterministic.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="middleware" data-id="m3">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q3</span>
+      <span class="question-text">How does thunk middleware change dispatch behavior?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Without thunk, <code>dispatch</code> expects plain action objects. Thunk allows dispatching functions that receive <code>dispatch</code> and <code>getState</code> for async orchestration.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="middleware" data-id="m4">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q4</span>
+      <span class="question-text">Middleware order: why does sequence matter?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Actions flow through middleware in registration order. Logging, auth, error handling, and retry behavior can differ based on chain order, so order should be intentional and documented.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="middleware" data-id="m5">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q5</span>
+      <span class="question-text">When to write custom middleware vs use existing tools?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Use existing middleware for common needs (thunk, logger, analytics adapters). Write custom middleware when behavior is domain-specific, cross-cutting, and not cleanly owned by one feature slice.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <button type="button" class="reset-btn" onclick="resetTab()">↺ Reset progress (this tab)</button>
+</div>
