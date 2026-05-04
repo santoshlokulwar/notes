@@ -1,0 +1,198 @@
+<div class="tab-panel active" id="panel-react" role="tabpanel">
+
+  <div class="section-heading"><h2>Core concepts</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="react" data-id="r1">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q1</span>
+      <span class="question-text">What is state uplifting (lifting state up)?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>State uplifting means moving state from a child to the <span class="highlight">nearest common parent</span> so several children share one source of truth. That keeps data flow one-way and keeps siblings in sync.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="react" data-id="r2">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q2</span>
+      <span class="question-text">What is JSX?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">JSX</span> is a syntax extension that looks like HTML in JavaScript. It compiles to <code>React.createElement</code> (or equivalent) calls so you can describe UI in a declarative way.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="react" data-id="r3">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q3</span>
+      <span class="question-text">What is the Context API and when do you use it?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">Context</span> lets you pass data through the tree without prop-drilling every level. Use it for rarely changing global-ish data (theme, auth user, locale). Avoid putting everything in context or you can trigger wide re-renders.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="react" data-id="r4">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q4</span>
+      <span class="question-text">Functional components vs class components — why prefer functional today?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Functional components with hooks are the default in modern React: simpler mental model, easier composition, no <code>this</code> binding issues, and alignment with concurrent features. Class lifecycle methods map to hooks (<code>useEffect</code>, <code>useLayoutEffect</code>, etc.).</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="section-heading"><h2>Hooks &amp; performance</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="react" data-id="r5">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q5</span>
+      <span class="question-text">What is the difference between <code>useMemo</code> and <code>useCallback</code>?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">useMemo</span> memoizes a <em>computed value</em> so you skip expensive recalculation when deps are unchanged. <span class="highlight">useCallback</span> memoizes a <em>function reference</em> so child components that depend on referential equality (<code>React.memo</code>) do not re-render unnecessarily.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="react" data-id="r6">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q6</span>
+      <span class="question-text">What is debouncing in UI handlers?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">Debouncing</span> delays executing a function until the user stops firing events for a set time (e.g. search input). It cuts work versus running on every keystroke.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="section-heading"><h2>Redux &amp; data</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="react" data-id="r7">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q7</span>
+      <span class="question-text">What is Redux Thunk?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">Redux Thunk</span> is middleware that lets you dispatch <em>functions</em>, not only plain action objects. Inside the thunk you can run async code and call <code>dispatch</code> / <code>getState</code>.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="react" data-id="r8">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q8</span>
+      <span class="question-text">Describe the Redux architecture at a high level.</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <ul class="answer-list">
+        <li><span class="highlight">Single store</span> — one global state tree</li>
+        <li><span class="highlight">Actions</span> — plain objects describing what happened</li>
+        <li><span class="highlight">Reducers</span> — pure functions: (state, action) → new state</li>
+        <li><span class="highlight">Dispatch</span> — sends actions to the store</li>
+        <li>Optional middleware (thunk, saga) for side effects</li>
+      </ul>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="react" data-id="r9">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q9</span>
+      <span class="question-text">Is data in the Redux store encrypted by default?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">No.</span> Redux stores plain JS objects in memory. Encryption or secure persistence is your responsibility (e.g. secure storage, obfuscation) if you need it.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="react" data-id="r10">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q10</span>
+      <span class="question-text">What is React Query (TanStack Query)?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">TanStack Query</span> (formerly React Query) manages <em>server state</em>: fetching, caching, background refresh, deduping requests, and keeping UI in sync with remote data — complementary to client state libraries.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="section-heading"><h2>Types &amp; ecosystem</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="react" data-id="r11">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q11</span>
+      <span class="question-text">What is static type checking (e.g. TypeScript)?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Types are checked at <span class="highlight">compile time</span> (or by the type checker before bundle). Variable and function types are known or inferred so many bugs are caught before runtime.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="react" data-id="r12">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q12</span>
+      <span class="question-text">What is GraphQL?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">GraphQL</span> is a typed query language for APIs. Clients request exactly the fields they need from often a single endpoint, which reduces over-fetching and under-fetching compared to naive REST.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="react" data-id="r13">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q13</span>
+      <span class="question-text">What is a peer dependency?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>A <span class="highlight">peer dependency</span> declares that your package expects the host app to install a compatible version (e.g. <code>react</code>, <code>react-dom</code>) instead of nesting its own copy — avoiding duplicate React and version conflicts.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="react" data-id="r14">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q14</span>
+      <span class="question-text">What’s new in React 19 (high level)?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>React 19 builds on React 18 with <span class="highlight">Actions</span> for async forms, the <code>use()</code> hook for reading promises/context, stronger Suspense patterns, resource preload APIs, and more mature Server Components support.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="react" data-id="r15">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q15</span>
+      <span class="question-text">What are micro frontends?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">Micro frontends</span> split the UI into independently deployable pieces (by team or domain), composed in the browser or via a shell app — similar ideas to microservices for the frontend.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <button type="button" class="reset-btn" onclick="resetTab()">↺ Reset progress (this tab)</button>
+</div>

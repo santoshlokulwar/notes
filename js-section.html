@@ -1,0 +1,278 @@
+<div class="tab-panel" id="panel-js" role="tabpanel" hidden>
+
+  <div class="section-heading"><h2>Functions in JS</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="js" data-id="j1">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q1</span>
+      <span class="question-text">Function declaration vs function expression — and hoisting?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>A <span class="highlight">declaration</span> <code>function f() {}</code> is fully hoisted (body lifted). An <span class="highlight">expression</span> <code>var g = function() {}</code> follows variable hoisting: <code>g</code> is hoisted as <code>undefined</code> until the assignment line runs.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="js" data-id="j2">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q2</span>
+      <span class="question-text">What is an anonymous function?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>A function <em>without</em> a name in the source, usually as an expression: <code>setTimeout(() => {}, 0)</code> or <code>arr.map(x => x * 2)</code>. A bare <code>function() {}</code> as a statement is invalid; assign or wrap it.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="js" data-id="j3">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q3</span>
+      <span class="question-text">Named function expression — can you call the inner name from outside?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><code>var b = function a() {}</code> — you call <code>b()</code> externally. The name <code>a</code> is usable <em>inside</em> the function (e.g. recursion). Use a base case to avoid infinite recursion.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="js" data-id="j4">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q4</span>
+      <span class="question-text">Parameters vs arguments</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">Parameters</span> are the names in the function definition. <span class="highlight">Arguments</span> are the values you pass at call time.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="js" data-id="j5">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q5</span>
+      <span class="question-text">What are first-class functions?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Functions are values: assign to variables, pass as arguments, return from other functions.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="section-heading"><h2>Callbacks, promises, async</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="js" data-id="j6">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q6</span>
+      <span class="question-text">What is a callback? What is callback hell?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>A <span class="highlight">callback</span> is a function passed to another to run later (often async). <span class="highlight">Callback hell</span> is nested callbacks for sequential async steps (order → pay → summary → wallet), hard to read and error-handle.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="js" data-id="j7">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q7</span>
+      <span class="question-text">What is inversion of control with callbacks?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>You hand execution to another API; you don’t control <em>when</em> or <em>if</em> your callback runs (errors, timing). Promises/async patterns help regain structured flow.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="js" data-id="j8">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q8</span>
+      <span class="question-text"><code>Promise.all</code>, <code>allSettled</code>, <code>race</code>, <code>any</code></span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <ul class="answer-list">
+        <li><strong>all</strong> — waits for all; rejects fast on first failure</li>
+        <li><strong>allSettled</strong> — waits for every promise to settle (success or fail)</li>
+        <li><strong>race</strong> — first settled (fulfill or reject) wins</li>
+        <li><strong>any</strong> — first fulfillment wins; if all reject, aggregated error</li>
+      </ul>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="js" data-id="j9">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q9</span>
+      <span class="question-text"><code>async</code> / <code>await</code> rules of thumb</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>An <code>async</code> function always returns a promise. <code>await</code> pauses inside an async function until a promise settles. <code>fetch()</code> returns a promise you can await.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="section-heading"><h2><code>this</code>: call, apply, bind</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="js" data-id="j10">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q10</span>
+      <span class="question-text">Explain <code>call</code>, <code>apply</code>, and <code>bind</code></span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>All set <code>this</code> for a function. <span class="highlight">call</span> takes arguments as a list. <span class="highlight">apply</span> takes arguments as an array. <span class="highlight">bind</span> returns a new function with <code>this</code> (and optional partial args) fixed for later invocation.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="section-heading"><h2>Scope, hoisting, TDZ</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="js" data-id="j11">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q11</span>
+      <span class="question-text">What is hoisting?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>During compilation, declarations are conceptually moved to the top of their scope. <span class="highlight">Initializations are not hoisted</span> — only the binding (var → undefined; let/const → TDZ until line).</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="js" data-id="j12">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q12</span>
+      <span class="question-text">What is the temporal dead zone (TDZ)?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>For <code>let</code> and <code>const</code>, from scope entry until the declaration line, the binding exists but must not be read — accessing it throws <code>ReferenceError</code>. This enforces no use-before-declaration.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="js" data-id="j13">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q13</span>
+      <span class="question-text">Script scope vs global scope (modules)</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Classic scripts at top level create true globals (on <code>window</code> in browsers). ES <span class="highlight">modules</span> have their own top-level scope — not the same as browser global; exports are explicit.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="js" data-id="j14">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q14</span>
+      <span class="question-text">What is a closure?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>A function that retains access to variables from its outer lexical scope even after the outer function finished.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="js" data-id="j15">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q15</span>
+      <span class="question-text">Event loop — microtasks vs macrotasks</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>JS runs one call stack. When empty, it drains <span class="highlight">microtasks</span> (promise thens, queueMicrotask) before taking the next <span class="highlight">macrotask</span> (timer, I/O). Starvation happens if microtasks enqueue forever.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="js" data-id="j16">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q16</span>
+      <span class="question-text"><code>undefined</code> vs <code>null</code></span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">undefined</span> — default unset value, missing property, no return. <span class="highlight">null</span> — intentional “no object” often from APIs. Both are falsy; types differ (<code>typeof null === 'object'</code> is a historical bug).</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="js" data-id="j17">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q17</span>
+      <span class="question-text"><code>forEach</code> vs <code>map</code></span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">map</span> returns a new array of transformed values. <span class="highlight">forEach</span> returns <code>undefined</code> and is for side effects; you can’t break it like a normal loop (no built-in break).</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="js" data-id="j18">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q18</span>
+      <span class="question-text">Remove duplicates from an array of objects</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Use a <code>Set</code> with serialized keys, or <code>filter</code> with a <code>Map</code> keyed by id, or <code>reduce</code>. For primitives, <code>[...new Set(arr)]</code> suffices.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="js" data-id="j19">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q19</span>
+      <span class="question-text">Second largest number without sorting</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>One pass: track <code>max</code> and <code>second</code>; for each value update both. Handle duplicates and edge cases (length &lt; 2).</p>
+      <pre>function secondLargest(nums) {
+  let max = -Infinity, sec = -Infinity;
+  for (const n of nums) {
+    if (n > max) { sec = max; max = n; }
+    else if (n > sec && n !== max) sec = n;
+  }
+  return sec === -Infinity ? null : sec;
+}</pre>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="js" data-id="j20">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q20</span>
+      <span class="question-text">What is a polyfill?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Code that implements a newer API on older runtimes so your script can use the feature everywhere (e.g. <code>Promise</code>, <code>Array.prototype.at</code>).</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="js" data-id="j21">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q21</span>
+      <span class="question-text">Strongly vs loosely coupled modules</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">Tight coupling</span> — modules know too much about each other; hard to change one without breaking others. <span class="highlight">Loose coupling</span> — clear interfaces, dependency inversion, easier testing and swaps.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <p class="link-es6">Deeper ES6 Q&amp;A: <a href="es6-notes.html">es6-notes.html</a></p>
+  <button type="button" class="reset-btn" onclick="resetTab()">↺ Reset progress (this tab)</button>
+</div>

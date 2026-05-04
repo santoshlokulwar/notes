@@ -1,0 +1,158 @@
+<div class="tab-panel" id="panel-logic" role="tabpanel" hidden>
+
+  <div class="section-heading"><h2>React / JS puzzles</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="logic" data-id="l1">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q1</span>
+      <span class="question-text">Class <code>setState</code> puzzle: what prints when?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <pre>// state.a starts at 10
+this.setState({ a: 20 }, () => console.log("first", this.state.a));
+console.log("second", this.state.a);</pre>
+      <p><span class="highlight">Typical React:</span> <code>setState</code> is asynchronous. The sync line runs first — <strong>second</strong> often still shows <strong>10</strong> (batched update not flushed). The callback runs after commit — <strong>first</strong> shows <strong>20</strong>. If you meant a free variable <code>a = 10</code> unrelated to state, logs would still show <code>10</code> for that variable since <code>setState</code> doesn’t mutate locals.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="logic" data-id="l2">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q2</span>
+      <span class="question-text">Hoisting snippet — what is logged?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <pre>console.log("b: " + b);
+function getName() { console.log("Try programiz.pro"); }
+const a = 2;
+var b = 3;
+let c;
+console.log(c);</pre>
+      <p><code>var b</code> is hoisted → first log prints <code>b: undefined</code>. <code>getName</code> is hoisted. <code>const a</code> / <code>let c</code> are in TDZ until their lines (no access above). Last <code>console.log(c)</code> prints <code>undefined</code> (declared, not assigned).</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="logic" data-id="l3">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q3</span>
+      <span class="question-text">Count strings: <code>['ab','bc','ab','cd','bc']</code> → <code>ab:2, bc:2, cd:1</code></span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <pre>const a = ['ab', 'bc', 'ab', 'cd', 'bc'];
+const m = a.reduce((acc, s) => {
+  acc[s] = (acc[s] || 0) + 1;
+  return acc;
+}, {});
+// Object.entries(m).map(([k,v]) => `${k}:${v}`).join(', ')</pre>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="section-heading"><h2>Sequences &amp; arrays</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="logic" data-id="l4">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q4</span>
+      <span class="question-text">First 10 numbers: first=2, second=8, third=2×second−first, then repeat pattern?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Given rule <code>t = 2*b - a</code> for the third from first two: starting 2, 8 → third = 14. If the pattern is “every next = 2×prev − prevPrev” (linear recurrence), you get: 2, 8, 14, 20, 26, 32, 38, 44, 50, 56 for ten terms.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="logic" data-id="l5">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q5</span>
+      <span class="question-text">Reorder: <code>[1,3,4,34,5]</code> → <code>[5,3,1,4,34]</code></span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Swap indices 0↔4 and 1↔2: <code>[arr[4], arr[2], arr[1], arr[3], arr[0]]</code> or destructuring swaps in place.</p>
+      <pre>[arr[0], arr[4]] = [arr[4], arr[0]];
+[arr[1], arr[2]] = [arr[2], arr[1]];</pre>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="logic" data-id="l6">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q6</span>
+      <span class="question-text">Longest consecutive sequence in an array</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Put values in a <code>Set</code>. For each number that is the start of a sequence (<code>n-1</code> not in set), walk <code>n+1</code> while present. Track max length and slice. Example: <code>[1,10,11,12,14,2,3,4,5]</code> → longest consecutive values <code>[1,2,3,4,5]</code>. For <code>[...,15,16]</code> the run <code>10..16</code> wins if you treat consecutive integers (your second example implies 13 is implied missing in array but sequence is 10–16 — clarify with interviewer; algorithm finds longest chain of integers each +1 present).</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="section-heading"><h2>Strings &amp; structures</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="logic" data-id="l7">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q7</span>
+      <span class="question-text">Balanced parentheses: <code>()</code> true, <code>({})</code> true, <code>}{</code> false</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Use a stack: push on <code>([{</code>, pop on closing with matching open. If stack empty on close or wrong top → false. End stack must be empty.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="logic" data-id="l8">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q8</span>
+      <span class="question-text">Last “run” of equal characters: <code>aa bbbcccddd</code> → <code>ddd</code></span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Iterate chars (ignore spaces or split tokens). Track current char + count; on change, update “last run”. After loop, return the last run string.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="logic" data-id="l9">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q9</span>
+      <span class="question-text">N students × M subjects — total marks excluding lowest subject average globally?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>For each subject compute average across all students; find subject with minimum average; for each student sum marks skipping that one column (or subtract that subject’s score once).</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="logic" data-id="l10">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q10</span>
+      <span class="question-text">Longest subsequence in a string (interview variant)</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Clarify: longest substring without repeat, longest palindrome subsequence, or LCS between two strings? Each maps to a standard pattern (sliding window, DP LCS/LPS). State assumptions before coding.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="logic" data-id="l11">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q11</span>
+      <span class="question-text">Add element at first position of an array</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><code>arr.unshift(x)</code>, <code>arr.splice(0,0,x)</code>, <code>[x, ...arr]</code> (new array), <code>[x].concat(arr)</code>.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <button type="button" class="reset-btn" onclick="resetTab()">↺ Reset progress (this tab)</button>
+</div>

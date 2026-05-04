@@ -1,0 +1,222 @@
+<div class="tab-panel" id="panel-rn" role="tabpanel" hidden>
+
+  <div class="section-heading"><h2>New architecture</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="rn" data-id="n1">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q1</span>
+      <span class="question-text">What is JSI in React Native’s New Architecture?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">JSI (JavaScript Interface)</span> is a C++ layer that lets JS talk to native code <em>without</em> the old bridge. It avoids JSON serialization overhead, can run synchronously where appropriate, and underpins Turbo Modules and Fabric.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="rn" data-id="n2">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q2</span>
+      <span class="question-text">What are Turbo Modules?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">Turbo Modules</span> replace legacy native modules: they use JSI for direct, faster (optionally synchronous) calls, lazy loading, and better performance than bridge-based modules.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="rn" data-id="n3">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q3</span>
+      <span class="question-text">What is Fabric rendering?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">Fabric</span> is the new renderer: JSI-based C++ UI pipeline with synchronous layout options, better alignment with concurrent React, and less bridge overhead than the old <code>UIManager</code> + shadow thread model.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="section-heading"><h2>Rendering &amp; lists</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="rn" data-id="n4">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q4</span>
+      <span class="question-text">What is the Virtual DOM in React Native?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>React still builds a <span class="highlight">JS tree</span> of your UI. Reconciliation diffs that tree; updates are applied to <em>native</em> views, not a browser DOM.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="rn" data-id="n5">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q5</span>
+      <span class="question-text"><code>FlatList</code> vs <code>map()</code> for long lists?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">FlatList</span> <em>virtualizes</em>: it mounts only visible rows (+ small window). Mapping thousands of <code>View</code>s kills memory and JS thread. Use <code>FlatList</code> / <code>SectionList</code> for large data.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="rn" data-id="n6">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q6</span>
+      <span class="question-text">What is list virtualization?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Only a slice of items is rendered and recycled as you scroll, keeping node count and work bounded.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="rn" data-id="n7">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q7</span>
+      <span class="question-text">Overlapping views without <code>position</code> — what helps?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Use <span class="highlight"><code>zIndex</code></span> (and elevation on Android) so the intended view draws on top when siblings overlap in the same parent.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="section-heading"><h2>Hooks &amp; navigation</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="rn" data-id="n8">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q8</span>
+      <span class="question-text"><code>useEffect</code> vs <code>useLayoutEffect</code></span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">useEffect</span> runs after paint — good for subscriptions, logging, most data work. <span class="highlight">useLayoutEffect</span> runs after DOM/native layout but <em>before</em> paint; use when you must measure or mutate layout to avoid flicker (blocking).</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="rn" data-id="n9">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q9</span>
+      <span class="question-text">What is React Navigation?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>The common JS routing library for RN: manages navigation state and transitions via stack, tab, drawer, and other navigators.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="rn" data-id="n10">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q10</span>
+      <span class="question-text">What is Universal Linking / deep linking (concept)?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>HTTP/HTTPS links open your app (or store) on the right screen. iOS Universal Links and Android App Links require domain verification and OS configuration alongside React Navigation linking setup.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="section-heading"><h2>Production &amp; performance</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="rn" data-id="n11">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q11</span>
+      <span class="question-text">How do you remove <code>console.log</code> in React Native production?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Use the Babel plugin <span class="highlight"><code>transform-remove-console</code></span> enabled only for production builds so Metro strips logs at compile time.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="rn" data-id="n12">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q12</span>
+      <span class="question-text">What usually causes RN performance problems?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <ul class="answer-list">
+        <li>JS thread blocking (heavy sync work on main JS bundle)</li>
+        <li>Unnecessary re-renders</li>
+        <li>Large lists without virtualization</li>
+        <li>Heavy legacy bridge traffic (improves with New Architecture)</li>
+        <li>Memory leaks (listeners, timers, subscriptions)</li>
+      </ul>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="rn" data-id="n13">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q13</span>
+      <span class="question-text">How can you fetch live / real-time data?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Polling, <span class="highlight">WebSockets</span>, GraphQL subscriptions, or real-time DB SDKs. WebSockets are often the most efficient for true push streams.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="rn" data-id="n14">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q14</span>
+      <span class="question-text">How do push notifications work (high level)?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>App registers with FCM (Android) / APNs (iOS). Server sends to the provider; OS wakes or delivers to the app. You handle tokens, permissions, background modes, and notification channels (Android).</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="rn" data-id="n15">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q15</span>
+      <span class="question-text">React Native 0.81 — what stands out?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Broad Android 16 support with edge-to-edge defaults, experimental faster iOS precompiled builds, better errors/DX, legacy SafeAreaView deprecation, JSC moved to community package, stricter env/Metro expectations.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="rn" data-id="n16">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q16</span>
+      <span class="question-text"><code>Pressable</code> vs <code>TouchableWithoutFeedback</code>?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><span class="highlight">Pressable</span> is the modern primitive: flexible children, hit slop, ripple on Android, pressed state styles. Touchables are older; <code>TouchableWithoutFeedback</code> gives no visual feedback — use when you wrap non-text custom UI and handle feedback yourself.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="rn" data-id="n17">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q17</span>
+      <span class="question-text">What is Flipper used for?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Flipper is a desktop debugger platform; <span class="highlight">plugins</span> inspect layout, network, Redux, databases, crash logs, etc. (ecosystem has shifted over time; still useful in many RN setups.)</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <button type="button" class="reset-btn" onclick="resetTab()">↺ Reset progress (this tab)</button>
+</div>
