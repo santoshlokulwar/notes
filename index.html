@@ -362,6 +362,7 @@
   <button type="button" class="tab-btn active" data-tab="react" role="tab" aria-selected="true">React</button>
   <button type="button" class="tab-btn" data-tab="rn" role="tab" aria-selected="false">React Native</button>
   <button type="button" class="tab-btn" data-tab="js" role="tab" aria-selected="false">JavaScript</button>
+  <button type="button" class="tab-btn" data-tab="es6" role="tab" aria-selected="false">ES6</button>
   <button type="button" class="tab-btn" data-tab="ts" role="tab" aria-selected="false">TypeScript</button>
   <button type="button" class="tab-btn" data-tab="zustand" role="tab" aria-selected="false">Zustand</button>
   <button type="button" class="tab-btn" data-tab="realm" role="tab" aria-selected="false">Realm DB</button>
@@ -385,6 +386,7 @@
     react: 'react-section.html',
     rn: 'rn-section.html',
     js: 'js-section.html',
+    es6: 'es6-section.html',
     ts: 'typescript-section.html',
     zustand: 'zustand-section.html',
     realm: 'realm-section.html',
@@ -399,7 +401,7 @@
 
   async function loadSections() {
     sectionsContainer.innerHTML = '';
-    const tabs = ['react', 'rn', 'js', 'ts', 'zustand', 'realm', 'redux', 'rtk', 'middleware', 'senior', 'logic'];
+    const tabs = ['react', 'rn', 'js', 'es6', 'ts', 'zustand', 'realm', 'redux', 'rtk', 'middleware', 'senior', 'logic'];
     const sections = await Promise.all(
       tabs.map(async function (tab) {
         const res = await fetch(SECTION_FILES[tab]);
@@ -524,7 +526,7 @@
   });
 
   await loadSections();
-  ['react', 'rn', 'js', 'ts', 'zustand', 'realm', 'redux', 'rtk', 'middleware', 'senior', 'logic'].forEach(applyRestoredState);
+  ['react', 'rn', 'js', 'es6', 'ts', 'zustand', 'realm', 'redux', 'rtk', 'middleware', 'senior', 'logic'].forEach(applyRestoredState);
   switchTab('react');
 })();
 </script>

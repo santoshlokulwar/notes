@@ -1,0 +1,259 @@
+<div class="tab-panel" id="panel-es6" role="tabpanel" hidden>
+
+  <div class="section-heading"><h2>ES6 / ECMAScript features</h2><div class="section-line"></div></div>
+
+  <div class="qa-card" data-tab="es6" data-id="es61">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q1</span>
+      <span class="question-text"><code>let</code> and <code>const</code> — why const cannot be reassigned?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><code>const</code> prevents reassignment of the variable reference, not mutation of the referenced object. Object properties can still change unless the object is frozen.</p>
+      <pre>const user = { name: 'A' };
+user.name = 'B'; // allowed
+// user = {} // not allowed (reassignment)
+
+Object.freeze(user); // shallow freeze</pre>
+      <p>Deep freeze recursively freezes nested objects for stronger immutability checks, but adds overhead and is mostly used in development.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="es6" data-id="es62">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q2</span>
+      <span class="question-text">Arrow functions and why they do not have prototype</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Arrow functions are concise and lexically bind <code>this</code>. They do not create their own <code>this</code>, <code>arguments</code>, or <code>prototype</code>.</p>
+      <p>Arrow functions cannot be constructors (<code>new</code> does not work), so JavaScript does not assign them a <code>prototype</code> property.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="es6" data-id="es63">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q3</span>
+      <span class="question-text">What is prototype in JavaScript?</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Prototype is the object used for inheritance in JavaScript. Objects can share methods through the prototype chain, which avoids duplicating behavior per instance.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="es6" data-id="es64">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q4</span>
+      <span class="question-text">Template literals</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Template literals use backticks and solve interpolation, multiline strings, and embedded expressions.</p>
+      <pre>const name = 'Santosh';
+const msg = `Hello ${name}
+Welcome!`;</pre>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="es6" data-id="es65">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q5</span>
+      <span class="question-text">Map and Set</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><code>Map</code> stores key-value pairs where keys can be any type and preserves insertion order. <code>Set</code> stores unique values and also preserves insertion order.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="es6" data-id="es66">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q6</span>
+      <span class="question-text">Default parameters</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Default parameters provide fallback values when an argument is missing or <code>undefined</code>.</p>
+      <pre>function greet(name = 'Guest') {
+  return `Hello ${name}`;
+}</pre>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="es6" data-id="es67">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q7</span>
+      <span class="question-text">Destructuring arrays and objects</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Destructuring extracts values from arrays/objects into variables in concise syntax.</p>
+      <pre>const [a, b] = [10, 20];
+const { id, name } = { id: 1, name: 'S' };</pre>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="es6" data-id="es68">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q8</span>
+      <span class="question-text">Spread vs Rest operator</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Spread expands iterable/object values. Rest collects remaining values into an array/object.</p>
+      <pre>const nums = [1, 2];
+const arr = [...nums, 3]; // spread
+
+function sum(...values) { // rest
+  return values.reduce((t, n) => t + n, 0);
+}</pre>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="es6" data-id="es69">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q9</span>
+      <span class="question-text">Object literals (ES6 enhancements)</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>ES6 object literals support property shorthand, method shorthand, and computed property names.</p>
+      <pre>const x = 10;
+const key = 'score';
+const obj = {
+  x,
+  greet() { return 'hi'; },
+  [key]: 100
+};</pre>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="es6" data-id="es610">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q10</span>
+      <span class="question-text">Classes in JavaScript</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Classes are syntactic sugar over prototype-based inheritance, providing cleaner syntax for constructor, methods, static methods, and <code>extends</code>.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="es6" data-id="es611">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q11</span>
+      <span class="question-text">Modules (<code>import</code>/<code>export</code>): named and default</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Named export allows multiple values per file; default export allows one primary export per file. Both can coexist in one module.</p>
+      <pre>// math.js
+export const add = (a, b) => a + b;
+export default function subtract(a, b) { return a - b; }
+
+// usage
+import subtract, { add } from './math.js';</pre>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="es6" data-id="es612">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q12</span>
+      <span class="question-text">Promises and promise states</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>A Promise represents eventual completion/failure of an async operation.</p>
+      <ul class="answer-list">
+        <li><strong>Pending</strong> - initial state</li>
+        <li><strong>Fulfilled</strong> - operation succeeded</li>
+        <li><strong>Rejected</strong> - operation failed</li>
+      </ul>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="es6" data-id="es613">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q13</span>
+      <span class="question-text">New data structures: <code>Map</code>, <code>Set</code>, <code>WeakMap</code>, <code>WeakSet</code></span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><code>WeakMap</code>/<code>WeakSet</code> hold weak references (object keys only) and are not enumerable. Useful for memory-safe metadata/caching tied to object lifecycle.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="es6" data-id="es614">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q14</span>
+      <span class="question-text"><code>for...of</code> loop</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p><code>for...of</code> iterates over values from iterable objects (arrays, strings, maps, sets) via iterator protocol.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="es6" data-id="es615">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q15</span>
+      <span class="question-text">Symbols</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>A Symbol is a unique immutable primitive, commonly used as object property keys to avoid naming collisions and support meta-programming patterns.</p>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="es6" data-id="es616">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q16</span>
+      <span class="question-text">Generators</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <p>Generators are functions that pause/resume using <code>yield</code> and return iterator objects for step-wise execution.</p>
+      <pre>function* ids() {
+  yield 1;
+  yield 2;
+}
+const it = ids();
+it.next(); // { value: 1, done: false }</pre>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <div class="qa-card" data-tab="es6" data-id="es617">
+    <div class="question-row" onclick="toggleCard(this)">
+      <span class="q-number">Q17</span>
+      <span class="question-text">Useful built-in methods (Array, Object, String)</span>
+      <span class="toggle-icon">+</span>
+    </div>
+    <div class="answer-panel"><div class="answer-inner">
+      <ul class="answer-list">
+        <li><strong>Array:</strong> <code>find</code>, <code>findIndex</code>, <code>includes</code>, <code>flat</code>, <code>flatMap</code>, <code>at</code>, <code>toSorted</code></li>
+        <li><strong>Object:</strong> <code>entries</code>, <code>values</code>, <code>fromEntries</code>, <code>assign</code>, <code>hasOwn</code></li>
+        <li><strong>String:</strong> <code>includes</code>, <code>startsWith</code>, <code>endsWith</code>, <code>replaceAll</code>, <code>padStart</code></li>
+      </ul>
+      <button type="button" class="mark-btn" onclick="markAnswered(event, this)">✓ Mark as reviewed</button>
+    </div></div>
+  </div>
+
+  <button type="button" class="reset-btn" onclick="resetTab()">↺ Reset progress (this tab)</button>
+</div>
